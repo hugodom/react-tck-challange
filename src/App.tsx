@@ -1,24 +1,33 @@
-import React, { ReactElement } from 'react';
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { Header } from './components/Header/Header';
+import { Dashboard } from './components/Dashboard/Dashboard';
+import { List } from './components/List/List';
 import './App.scss';
 
-function App(): ReactElement {
+// Create a client
+const queryClient = new QueryClient();
+
+function App() {
+  const reactRouterRoutes = [
+    { path: '/', component: () => <Dashboard /> },
+    { path: '/tab1', component: () => <Dashboard /> },
+    { path: '/tab2', component: () => <List /> }
+  ];
+  const reactRouterRoutesResult = reactRouterRoutes.map(
+    ({ path, component }) => (
+      <Route key={path} path={path} exact component={component} />
+    )
+  );
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="AppWrapper">
+      <BrowserRouter>
+        <QueryClientProvider client={queryClient} contextSharing={true}>
+          <Header />
+          {reactRouterRoutesResult}
+        </QueryClientProvider>
+      </BrowserRouter>
     </div>
   );
 }

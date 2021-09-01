@@ -1,0 +1,33 @@
+@import './../../styles/styles.scss';
+
+ul, 
+li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.nav {
+  
+  @include menu-font('Roboto Slab');
+  margin:10px 5px;
+  text-align: right;
+  .nav__item, 
+  .nav__item--selected {
+    display: inline-block;
+    margin: 0 5px;
+    color: $dark;
+  }
+
+  .nav__item--selected {
+    display: inline-block;
+    margin: 0 5px;
+    color: $light;
+  }
+}
+
+
