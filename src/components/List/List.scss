@@ -1,0 +1,28 @@
+@import "./../../styles/styles.scss";
+
+.drink {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  text-align: center;
+  border: 1px solid #dee1e8;
+  background-color: $white;
+  @include pad(1);
+  @include margin(2);
+}
+
+.drink__name {
+  @include drink__name('Roboto Slab');
+  font-weight: bold;
+  text-align: center;
+}
+
+.drink__description {
+  @include drink__description();
+  text-align: left;
+}
+
+.drink__pairing {
+  @include drink__pairing('Roboto Slab');
+  text-align: left;
+}
