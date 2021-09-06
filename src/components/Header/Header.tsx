@@ -7,8 +7,12 @@ export const Header: FunctionComponent<{}> = () => {
     <header>
       <nav>
         <ul className="nav">
-          <li className="nav__item">Tab 1</li>
-          <li className="nav__item">Tab 2</li>
+          <li className="nav__item">
+            <a href="/tab1">Tab 1</a>
+          </li>
+          <li className="nav__item">
+            <a href="/tab2">Tab 2</a>
+          </li>
         </ul>
       </nav>
     </header>

@@ -1,5 +1,6 @@
 @import "./../../styles/styles.scss";
 
+
 .drink {
   display: flex;
   flex-direction: column;
@@ -7,8 +8,20 @@
   text-align: center;
   border: 1px solid #dee1e8;
   background-color: $white;
-  @include pad(1);
+  @include pad(2);
   @include margin(2);
+  position: relative;
+  gap: 12px;
+}
+
+.drink__image {
+  min-width: 100px;
+}
+
+.drink__body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .drink__name {
@@ -20,9 +33,45 @@
 .drink__description {
   @include drink__description();
   text-align: left;
+  margin-bottom: auto;
 }
 
 .drink__pairing {
   @include drink__pairing('Roboto Slab');
   text-align: left;
+  margin-top: auto;
+  font-weight: 700;
+}
+
+.drink__abv {
+  @include drink__abv('Roboto Slab');
+  text-align: left;
+  position: absolute;
+  width: 86px;
+  height: 32px;
+  right: 0;
+  top: 24px;
+}
+
+.drink__abv--low{
+  background-color: $yellow;
+}
+
+.drink__abv--mid{
+  background-color: $orange;
+}
+
+.drink__abv--high{
+  background-color: $red;
+}
+
+@media (min-width: 768px) {
+  .drink {
+    flex-direction: row;
+    gap: 80px;
+  }
+
+  .drink__description {
+    width: calc(100% - 90px);
+  }
 }
